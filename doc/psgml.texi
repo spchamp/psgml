@@ -10,11 +10,10 @@
 @c $Id: psgml.texi,v 1.8 2005/03/02 19:44:20 lenst Exp $
 
 @ifinfo
-@format
-START-INFO-DIR-ENTRY
+@dircategory Emacs
+@direntry
 * PSGML: (psgml).          PSGML, a major mode for SGML documents.
-END-INFO-DIR-ENTRY
-@end format
+@end direntry
 @end ifinfo
 
 @ifinfo
