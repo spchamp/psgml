@@ -94,11 +94,11 @@
   "For all final states S in DFA do FORMS.
 Syntax: var dfa-expr &body forms"
   `(let ((L-states (sgml-some-states-of ,dfa))
-	   ,s)
-       (while L-states
-	 (when (sgml-state-final-p (setq ,s (car L-states)))
-	   ,@forms)
-	 (setq L-states (cdr L-states)))))
+         ,s)
+     (while L-states
+       (when (sgml-state-final-p (setq ,s (car L-states)))
+         ,@forms)
+       (setq L-states (cdr L-states)))))
 
 (put 'sgml-for-all-final-states 'lisp-indent-hook 2)
 (put 'sgml-for-all-final-states 'edebug-form-hook '(symbolp &rest form))

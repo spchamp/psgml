@@ -441,8 +441,8 @@ as that may change."
 (defun sgml-markup (entry text)
   (cons entry
 	`(lambda ()
-	     (interactive)
-	     (sgml-insert-markup ,text))))
+           (interactive)
+           (sgml-insert-markup ,text))))
 
 (defun sgml-insert-markup (text)
   (let ((end (sgml-mouse-region))

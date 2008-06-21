@@ -332,27 +332,27 @@ Applicable to XML.")
 
 (defmacro sgml-with-parser-syntax (&rest body)
   `(let ((normal-syntax-table (syntax-table))
-           (cb (current-buffer)))
-       (set-syntax-table (if sgml-xml-p xml-parser-syntax sgml-parser-syntax))
-       (unwind-protect
-	   (progn ,@body)
-         (setq sgml-last-buffer (current-buffer))
-         (set-buffer cb)
-	 (set-syntax-table normal-syntax-table))))
+         (cb (current-buffer)))
+     (set-syntax-table (if sgml-xml-p xml-parser-syntax sgml-parser-syntax))
+     (unwind-protect
+         (progn ,@body)
+       (setq sgml-last-buffer (current-buffer))
+       (set-buffer cb)
+       (set-syntax-table normal-syntax-table))))
 
 (defmacro sgml-with-parser-syntax-ro (&rest body)
   ;; Should only be used for parsing ....
   `(let ((normal-syntax-table (syntax-table))
-           (cb (current-buffer))
-           (buffer-modified (buffer-modified-p)))
-       (set-syntax-table (if sgml-xml-p xml-parser-syntax sgml-parser-syntax))
-       (unwind-protect
-	   (progn ,@body)
-         (setq sgml-last-buffer (current-buffer))
-         (set-buffer cb)
-	 (set-syntax-table normal-syntax-table)
-         (sgml-restore-buffer-modified-p buffer-modified)
-         (sgml-debug "Restoring buffer mod: %s" buffer-modified))))
+         (cb (current-buffer))
+         (buffer-modified (buffer-modified-p)))
+     (set-syntax-table (if sgml-xml-p xml-parser-syntax sgml-parser-syntax))
+     (unwind-protect
+         (progn ,@body)
+       (setq sgml-last-buffer (current-buffer))
+       (set-buffer cb)
+       (set-syntax-table normal-syntax-table)
+       (sgml-restore-buffer-modified-p buffer-modified)
+       (sgml-debug "Restoring buffer mod: %s" buffer-modified))))
 
 (eval-when-compile (defvar mc-flag))
 
@@ -1533,9 +1533,9 @@ in any of them."
   "Parse two or three chars; return nil if can't."
   (if (null char3)
       `(cond ((and (eq ,char1 (following-char))
-		 (eq ,char2 (char-after (1+ (point)))))
-	    (forward-char 2)
-	    t))
+                   (eq ,char2 (char-after (1+ (point)))))
+              (forward-char 2)
+              t))
     `(cond ((and (eq ,char1 (following-char))
 		 (eq ,char2 (char-after (1+ (point))))
 		 (eq ,char3 (char-after (1+ (1+ (point))))))
@@ -2740,10 +2740,10 @@ overrides the entity type in entity look up."
     (while fields
       (push
        `(defmacro ,(intern (format "%s-%s" dest (car fields))) (element)
-	    ,(format "Return %s field of ELEMENT." (car fields))
-	    (list
-	     ',(intern (format "%s-%s" orig (car fields)))
-	     element))
+          ,(format "Return %s field of ELEMENT." (car fields))
+          (list
+           ',(intern (format "%s-%s" orig (car fields)))
+           element))
        macs)
       (setq fields (cdr fields)))
     (cons 'progn macs)))
