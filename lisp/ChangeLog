@@ -12,10 +12,14 @@
 	('foo) or non-fatal (' foo).
 
 	* psgml-parse.el, psgml.el:
-
+ 
 	Removed fatal (make-local-hook ...) statements, which were
 	redundant anyway, since the following (add-hook ...) statements
 	all submit the optional 'local' argument.
+2008-12-16  Lennart Staflin  <lenst@lysator.liu.se>
+
+	* psgml-dtd.el (sgml-parse-character-reference): string-to-int ->
+	string-to-number
 
 2008-06-21  Lennart Staflin  <lenst@lysator.liu.se>
 
