@@ -1,5 +1,5 @@
 ;;;; psgml-other.el --- Part of SGML-editing mode with parsing support
-;; $Id: psgml-other.el,v 2.25 2005/02/27 17:13:20 lenst Exp $
+;; $Id: psgml-other.el,v 2.26 2005/05/19 19:42:48 lenst Exp $
 
 ;; Copyright (C) 1994 Lennart Staflin
 
