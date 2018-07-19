@@ -6,3 +6,8 @@ TAGS
 .#*
 *~
 *#
+## autotools
+*.rej
+autom4te.cache/
+configure
+configure.orig
