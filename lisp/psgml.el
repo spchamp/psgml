@@ -938,7 +938,11 @@ All bindings:
     (make-local-variable 'text-property-default-nonsticky)
     ;; see `sgml-set-face-for':
     (add-to-list 'text-property-default-nonsticky '(face . t)))
+  (when (fboundp 'make-local-hook)
+    (make-local-hook 'post-command-hook))
   (add-hook 'post-command-hook 'sgml-command-post 'append 'local)
+  (when (fboundp 'make-local-hook)
+    (make-local-hook 'activate-menubar-hook))
   (add-hook 'activate-menubar-hook 'sgml-update-all-options-menus
 	    nil 'local)
   (add-hook 'which-func-functions 'sgml-current-element-name nil t)

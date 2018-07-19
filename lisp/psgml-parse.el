@@ -2928,6 +2928,9 @@ overrides the entity type in entity look up."
 
 (defun sgml-set-initial-state (dtd)
   "Set initial state of parsing."
+  (when (fboundp 'make-local-hook)
+    (make-local-hook 'before-change-functions)
+    (make-local-hook 'after-change-functions))
   (add-hook 'before-change-functions 'sgml-note-change-at nil 'local)
   (add-hook 'after-change-functions 'sgml-set-face-after-change nil 'local)
   (let ((top-type			; Fake element type for the top
