@@ -7,7 +7,7 @@
 @syncodeindex vr cp
 @synindex ky cp
 @c %**end of header
-@c $Id$
+@c $Id: psgml.texi,v 1.8 2005/03/02 19:44:20 lenst Exp $
 
 @ifinfo
 @format
